@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yoga Studio Website</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f0f8f0;
+            margin:20px;
+        }
+
+        .container{
+            width:700px;
+            margin:auto;
+            background:white;
+            border:1px solid #999;
+            padding:20px;
+            border-radius:5px;
+        }
+
+        h1{
+            text-align:center;
+            color:darkgreen;
+        }
+
+        h3{
+            text-align:center;
+            color:#555;
+        }
+
+        p{
+            text-align:center;
+        }
+
+        fieldset{
+            border:2px solid darkgreen;
+            margin-bottom:15px;
+            padding:15px;
+        }
+
+        legend{
+            color:darkgreen;
+            font-weight:bold;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        input[type=number],
+        input[type=tel],
+        input[type=date],
+        select,
+        textarea{
+            width:98%;
+            padding:8px;
+            margin-top:5px;
+            margin-bottom:10px;
+            border:1px solid #999;
+            border-radius:3px;
+        }
+
+        textarea{
+            resize:none;
+        }
+
+        input[type=color]{
+            width:60px;
+            height:35px;
+        }
+
+        input[type=range]{
+            width:98%;
+        }
+
+        input[type=submit]{
+            background-color:darkgreen;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            cursor:pointer;
+        }
+
+        input[type=reset]{
+            background-color:gray;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            cursor:pointer;
+        }
+
+        input[type=submit]:hover{
+            background-color:green;
+        }
+
+        input[type=reset]:hover{
+            background-color:#555;
+        }
+
+        footer{
+            text-align:center;
+            margin-top:20px;
+            color:#555;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Yoga Studio Website</h1>
+<h3>Registration Form</h3>
+
+<p>Fill in the form below to register for yoga classes.</p>
+
+<form>
+
+<fieldset>
+
+<legend>Personal Information</legend>
+
+<label>Full Name</label><br>
+<input type="text" placeholder="Enter your full name" required>
+
+<label>Email Address</label><br>
+<input type="email" placeholder="example@gmail.com" required>
+
+<label>Password</label><br>
+<input type="password" required>
+
+<label>Mobile Number</label><br>
+<input type="tel" placeholder="Enter 10-digit mobile number"
+pattern="[0-9]{10}" required>
+
+<label>Age</label><br>
+<input type="number" min="15" max="70" required>
+
+<label>Date of Birth</label><br>
+<input type="date">
+
+<label>Gender</label><br><br>
+
+<input type="radio" name="gender"> Male
+<input type="radio" name="gender"> Female
+<input type="radio" name="gender"> Other
+
+</fieldset>
+
+<fieldset>
+
+<legend>Yoga Class Details</legend>
+
+<label>Select Yoga Programs</label><br><br>
+
+<input type="checkbox"> Hatha Yoga<br><br>
+
+<input type="checkbox"> Power Yoga<br><br>
+
+<input type="checkbox"> Meditation<br><br>
+
+<input type="checkbox"> Vinyasa Yoga<br><br>
+
+<input type="checkbox"> Kids Yoga
+
+<br><br>
+
+<label>Preferred Batch</label><br>
+
+<select>
+    <option>--Select Batch--</option>
+    <option>Morning (6:00 AM - 7:30 AM)</option>
+    <option>Evening (5:00 PM - 6:30 PM)</option>
+</select>
+
+<label>Membership Plan</label><br>
+
+<select>
+    <option>1 Month</option>
+    <option>3 Months</option>
+    <option>6 Months</option>
+    <option>1 Year</option>
+</select>
+
+</fieldset>
+
+<fieldset>
+
+<legend>Additional Information</legend>
+
+<label>Address</label><br>
+
+<textarea rows="4" placeholder="Enter your address"></textarea>
+
+<label>Emergency Contact Number</label><br>
+
+<input type="tel"
+placeholder="Enter emergency contact"
+pattern="[0-9]{10}">
+
+<label>Favourite Yoga Mat Color</label><br>
+
+<input type="color">
+
+<br><br>
+
+<label>Upload Medical Certificate</label><br>
+
+<input type="file">
+
+<br><br>
+
+<label>Fitness Level</label><br>
+
+Beginner
+<input type="range" min="0" max="100">
+Advanced
+
+</fieldset>
+
+<center>
+
+<input type="submit" value="Register">
+
+<input type="reset" value="Reset">
+
+</center>
+
+</form>
+
+<footer>
+
+<hr>
+
+<p><b>Yoga Studio Website</b></p>
+
+<p>Healthy Mind | Healthy Body | Healthy Life</p>
+
+<p>&copy; 2026 Yoga Studio. All Rights Reserved.</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
