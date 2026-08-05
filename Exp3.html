@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Bliss Studio</title>
+
+    <style>
+      *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    overflow-y:auto;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f8f8f8;
+    color:#333;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+/* Header */
+
+header{
+    background:#4CAF50;
+    color:#fff;
+    text-align:center;
+    padding:30px 20px;
+}
+
+header h1{
+    font-size:42px;
+}
+
+/* Navigation */
+
+nav{
+    background:#2E7D32;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    padding:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:8px 15px;
+    border-radius:5px;
+    transition:.3s;
+}
+
+nav a:hover{
+    background:#4CAF50;
+}
+
+/* Sections */
+
+section{
+    padding:50px 20px;
+}
+
+/* Hero */
+
+.hero{
+    background:#E8F5E9;
+    text-align:center;
+}
+
+.hero img{
+    width:100%;
+    max-width:900px;
+    height:auto;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+/* Button */
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#4CAF50;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.btn:hover{
+    background:#2E7D32;
+}
+
+/* Headings */
+
+h2{
+    text-align:center;
+    color:#2E7D32;
+    margin-bottom:20px;
+}
+
+/* Cards */
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+article{
+    flex:1 1 300px;
+    max-width:350px;
+    background:#fff;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+article img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+article h3{
+    color:#2E7D32;
+    margin:10px 0;
+}
+
+/* Table */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #ddd;
+    text-align:left;
+}
+
+th{
+    background:#4CAF50;
+    color:white;
+}
+
+/* Lists */
+
+ol,
+ul,
+dl{
+    max-width:700px;
+    margin:auto;
+}
+
+dt{
+    font-weight:bold;
+    color:#2E7D32;
+    margin-top:10px;
+}
+
+dd{
+    margin-left:20px;
+}
+
+/* Form */
+
+.form-container{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.form-subtitle{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+fieldset{
+    border:2px solid #2E7D32;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+legend{
+    color:#2E7D32;
+    font-weight:bold;
+}
+
+label{
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+input[type=radio],
+input[type=checkbox],
+input[type=color],
+input[type=file],
+input[type=range]{
+    width:auto;
+}
+
+.form-actions{
+    text-align:center;
+}
+
+input[type=submit],
+input[type=reset]{
+    background:#2E7D32;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    cursor:pointer;
+    border-radius:5px;
+    margin:5px;
+}
+
+input[type=reset]{
+    background:#757575;
+}
+
+/* Footer */
+
+footer{
+    background:#2E7D32;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+/* ---------- Tablet ---------- */
+
+@media screen and (max-width:992px){
+
+header h1{
+    font-size:34px;
+}
+
+article{
+    flex:1 1 45%;
+}
+
+table{
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+section{
+    padding:40px 20px;
+}
+}
+
+/* ---------- Mobile ---------- */
+
+@media screen and (max-width:768px){
+
+header h1{
+    font-size:28px;
+}
+
+nav{
+    gap:8px;
+}
+
+nav a{
+    font-size:15px;
+    padding:8px 10px;
+}
+
+.hero h2{
+    font-size:28px;
+}
+
+.cards{
+    flex-direction:column;
+    align-items:center;
+}
+
+article{
+    max-width:100%;
+}
+
+table{
+    display:block;
+    overflow-x:auto;
+}
+
+.form-container{
+    padding:15px;
+}
+
+.btn,
+input[type=submit],
+input[type=reset]{
+    width:100%;
+}
+
+section{
+    padding:30px 15px;
+}
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media screen and (max-width:480px){
+
+header{
+    padding:20px;
+}
+
+header h1{
+    font-size:24px;
+}
+
+header p{
+    font-size:15px;
+}
+
+nav{
+    flex-direction:column;
+}
+
+nav a{
+    width:100%;
+    text-align:center;
+}
+
+.hero h2{
+    font-size:22px;
+}
+
+.hero p{
+    font-size:15px;
+}
+
+section{
+    padding:20px 10px;
+}
+}
+
+    </style>
+</head>
+<body>
+
+<header id="home">
+    <h1>Yoga Bliss Studio</h1>
+    <p>Find Balance • Build Strength • Live Peacefully</p>
+</header>
+<NAV>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#classes">Classes</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#membership">Membership</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.yogaalliance.org" target="_blank" rel="noopener noreferrer">Yoga Alliance</a>
+</NAV>
+
+<section class="hero">
+    <h2>Welcome to Yoga Bliss Studio</h2>
+    <p>
+        Experience the perfect combination of yoga, meditation, and wellness. 
+        Join our expert instructors and improve your physical, mental, and emotional well-being.
+    </p>
+    <a href="#membership" class="btn">Join Today's Class</a>
+    <br><br>
+    <img src="https://gripzilla.co/cdn/shop/articles/improve-your-flexibility-with-these-7-effective-yoga-arm-stretches-311766.jpg?v=1723268312" alt="Yoga Practice">
+</section>
+
+<section id="about">
+    <h2>About Our Studio</h2>
+    <p>
+        Yoga Bliss Studio offers peaceful yoga sessions designed for beginners and advanced learners.
+        Our mission is to improve health through yoga, meditation, breathing techniques, and healthy lifestyle practices.
+    </p>
+    <br>
+    <p>
+        Our certified instructors guide members through daily yoga classes, mindfulness sessions, and
+        wellness programs that promote flexibility, strength, relaxation, and inner peace.
+    </p>
+</section>
+
+<section id="classes">
+    <h2>Our Popular Yoga Classes</h2>
+    <div class="cards">
+        <article>
+            <img src="https://cdn.shopify.com/s/files/1/0077/7587/9266/files/lotuscrafts-hatha-yoga-uebungen_1024x1024.jpg?v=1576668676" alt="Hatha Yoga Class">
+            <h3>Hatha Yoga</h3>
+            <p>Improve flexibility, posture, and breathing using traditional yoga techniques.</p>
+        </article>
+        <article>
+            <img src="https://www.laplage.fr/system/product_pictures/data/010/001/508/original/9782383380825-001-X.jpg?1776178135" alt="Vinyasa Yoga Class">
+            <h3>Vinyasa Yoga</h3>
+            <p>Dynamic yoga movements combined with breathing for better balance and endurance.</p>
+        </article>
+        <article>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbYNs0WGCfGCToVedFzTzsKONdL2pUgjo0u8oiEeyc4Gj4SumWe1iso2I&s=10" alt="Meditation Session">
+            <h3>Meditation</h3>
+            <p>Reduce stress and improve focus through guided meditation and mindfulness exercises.</p>
+        </article>
+    </div>
+</section>
+
+<section id="schedule">
+    <h2>Yoga Class Schedule</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Instructor</th>
+                <th>Time</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hatha Yoga</td>
+                <td>Priya Sharma</td>
+                <td>6:00 AM</td>
+                <td>1 Hour</td>
+            </tr>
+            <tr>
+                <td>Vinyasa Yoga</td>
+                <td>Rahul Mehta</td>
+                <td>8:00 AM</td>
+                <td>1 Hour</td>
+            </tr>
+            <tr>
+                <td>Meditation</td>
+                <td>Anjali Singh</td>
+                <td>5:00 PM</td>
+                <td>45 Minutes</td>
+            </tr>
+            <tr>
+                <td>Power Yoga</td>
+                <td>Kavya Nair</td>
+                <td>6:30 PM</td>
+                <td>1 Hour</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section>
+    <h2>Daily Yoga Routine</h2>
+    <ol>
+        <li>Warm Up
+            <ol>
+                <li>Stretching Exercises</li>
+                <li>Deep Breathing</li>
+            </ol>
+        </li>
+        <li>Main Yoga Practice
+            <ol>
+                <li>Standing Poses</li>
+                <li>Balance Poses</li>
+                <li>Core Strength</li>
+            </ol>
+        </li>
+        <li>Relaxation
+            <ol>
+                <li>Meditation</li>
+                <li>Shavasana</li>
+            </ol>
+        </li>
+    </ol>
+</section>
+
+<section>
+    <h2>Benefits of Yoga</h2>
+    <ul>
+        <li>Physical Health
+            <ul>
+                <li>Better Flexibility</li>
+                <li>Improved Posture</li>
+                <li>Stronger Muscles</li>
+            </ul>
+        </li>
+        <li>Mental Health
+            <ul>
+                <li>Reduced Stress</li>
+                <li>Better Concentration</li>
+                <li>Peaceful Mind</li>
+            </ul>
+        </li>
+        <li>Healthy Lifestyle
+            <ul>
+                <li>Better Sleep</li>
+                <li>Healthy Diet</li>
+                <li>Positive Thinking</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h2>Yoga Terminology</h2>
+    <dl>
+        <dt>Asana</dt>
+        <dd>A physical posture performed during yoga practice.</dd>
+
+        <dt>Pranayama</dt>
+        <dd>Breathing exercises that improve physical and mental wellness.</dd>
+
+        <dt>Meditation</dt>
+        <dd>A practice of mindfulness that calms the mind and improves focus.</dd>
+    </dl>
+</section>
+
+<section id="gallery">
+    <h2>Yoga Gallery</h2>
+    <div class="cards">
+        <article>
+            <img src="https://patanjaleeyoga.com/wp-content/uploads/2024/06/58.webp" alt="Morning Yoga">
+            <h3>Morning Yoga</h3>
+        </article>
+        <article>
+            <img src="https://thebuddhistcentre.com/sites/default/files/uploads/3986c9d34117c4064491329b1e93155d.jpg" alt="Meditation Session">
+            <h3>Meditation Session</h3>
+        </article>
+        <article>
+            <img src="https://t3.ftcdn.net/jpg/03/13/43/10/360_F_313431040_algVlD8qiQnikswKKOSuLVRTFhzd2IrS.jpg" alt="Group Practice">
+            <h3>Group Practice</h3>
+        </article>
+    </div>
+</section>
+
+<section id="membership">
+    <h2>Class Registration</h2>
+    <div class="form-container">
+        <p class="form-subtitle">Fill in the form below to register for our yoga classes and membership plans.</p>
+
+        <form>
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" placeholder="Enter your full name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="example@gmail.com" required>
+
+                <label for="pwd">Password</label>
+                <input type="password" id="pwd" required>
+
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
+
+                <label for="age">Age</label>
+                <input type="number" id="age" min="15" max="70" required>
+
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob">
+
+                <label>Gender</label><br>
+                <input type="radio" name="gender" id="male"> <label for="male" style="font-weight:normal;">Male</label>
+                <input type="radio" name="gender" id="female"> <label for="female" style="font-weight:normal;">Female</label>
+                <input type="radio" name="gender" id="other"> <label for="other" style="font-weight:normal;">Other</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Yoga Class Details</legend>
+
+                <label>Select Yoga Programs</label><br>
+                <input type="checkbox" id="hatha"> <label for="hatha" style="font-weight:normal;">Hatha Yoga</label><br>
+                <input type="checkbox" id="power"> <label for="power" style="font-weight:normal;">Power Yoga</label><br>
+                <input type="checkbox" id="meditation"> <label for="meditation" style="font-weight:normal;">Meditation</label><br>
+                <input type="checkbox" id="vinyasa"> <label for="vinyasa" style="font-weight:normal;">Vinyasa Yoga</label><br>
+                <input type="checkbox" id="kids"> <label for="kids" style="font-weight:normal;">Kids Yoga</label>
+                <br><br>
+
+                <label for="batch">Preferred Batch</label>
+                <select id="batch">
+                    <option value="">--Select Batch--</option>
+                    <option>Morning (6:00 AM - 7:30 AM)</option>
+                    <option>Evening (5:00 PM - 6:30 PM)</option>
+                </select>
+
+                <label for="plan">Membership Plan</label>
+                <select id="plan">
+                    <option>1 Month</option>
+                    <option>3 Months</option>
+                    <option>6 Months</option>
+                    <option>1 Year</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Information</legend>
+
+                <label for="address">Address</label>
+                <textarea id="address" rows="4" placeholder="Enter your address"></textarea>
+
+                <label for="emergency">Emergency Contact Number</label>
+                <input type="tel" id="emergency" placeholder="Enter emergency contact" pattern="[0-9]{10}">
+
+                <label for="mat-color">Favourite Yoga Mat Color</label><br>
+                <input type="color" id="mat-color">
+                <br><br>
+
+                <label for="med-cert">Upload Medical Certificate</label><br>
+                <input type="file" id="med-cert">
+                <br><br>
+
+                <label for="fitness">Fitness Level</label><br>
+                Beginner
+                <input type="range" id="fitness" min="0" max="100">
+                Advanced
+            </fieldset>
+
+            <div class="form-actions">
+                <input type="submit" value="Register">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer id="contact">
+    <p><strong>Done By :</strong> KAVIN ADAIKALARAJ F</p>
+    <p><strong>Register Number :</strong> URK24CS1188</p>
+    <p><strong>Exercise No :</strong> 1</p>
+    <p><strong>Title :</strong> Yoga Studio Website</p>
+    <p>&copy; 2026 Yoga Bliss Studio. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
