@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga Bliss Studio - Experiment 5 & 6</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#f8f8f8;color:#333;line-height:1.6;overflow-x:hidden}
+header{background:#4CAF50;color:white;text-align:center;padding:30px 20px}
+header h1{font-size:42px}
+nav{background:#2E7D32;position:sticky;top:0;z-index:1000;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px;padding:15px}
+nav a{color:white;text-decoration:none;font-weight:bold;padding:8px 15px;border-radius:5px;transition:.3s}
+nav a:hover{background:#4CAF50}
+section{padding:50px 20px}
+h2{text-align:center;color:#2E7D32;margin-bottom:15px}
+h3{color:#2E7D32;margin-bottom:10px}
+.hero{text-align:center;background-image:radial-gradient(circle at right bottom,rgba(76,175,80,.25) 0,rgba(76,175,80,.25) 100px,transparent 101px),linear-gradient(135deg,#E8F5E9,#C8E6C9);background-position:right bottom,center;background-repeat:no-repeat,no-repeat;background-size:300px 300px,cover}
+.hero p{max-width:750px;margin:auto}
+.hero img{width:100%;max-width:850px;height:auto;border-radius:10px;margin-top:20px}
+button,.btn{display:inline-block;background:#4CAF50;color:white;border:none;padding:12px 22px;border-radius:6px;cursor:pointer;text-decoration:none;font-weight:bold;margin-top:10px;transition:.3s}
+button:hover,.btn:hover{background:#2E7D32;transform:scale(1.03)}
+.rounded-feature{max-width:750px;margin:20px auto;padding:25px;background:#e8f5e9;border:3px solid #4CAF50;border-radius:15px 50px 30px 5px}
+.cards{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+article{flex:1 1 280px;max-width:350px;background:white;padding:20px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.15);transition:.3s}
+article:hover{transform:translateY(-5px)}
+article img{width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;background:white}
+th,td{padding:12px;border:1px solid #ddd;text-align:left}
+th{background:#4CAF50;color:white}
+#scheduleTable tbody tr:nth-child(odd){background:#f2f2f2}
+#scheduleTable tbody tr:nth-child(even){background:#e8f5e9}
+#scheduleTable tbody tr:hover{background:#c8e6c9;cursor:pointer}
+.form-container{max-width:700px;margin:auto;background:white;padding:25px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+fieldset{border:2px solid #4CAF50;padding:20px;border-radius:12px;margin-bottom:20px}
+legend{color:#2E7D32;font-weight:bold;padding:0 8px}
+label{display:block;font-weight:bold;margin-top:10px}
+input,select,textarea{width:100%;padding:10px;margin-top:5px;margin-bottom:10px;border:1px solid #ccc;border-radius:5px}
+input:focus,select:focus,textarea:focus{border:3px solid #4CAF50;background:#f1fff2;outline:none}
+input:required{border-left:4px solid #2E7D32}
+input[type=email]:invalid,input[type=tel]:invalid{border-color:red}
+input[type=email]:valid,input[type=tel]:valid{border-color:#4CAF50}
+.experiment-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+.experiment-box{background:white;padding:25px;border-radius:15px;box-shadow:0 3px 12px rgba(0,0,0,.12);border-top:5px solid #4CAF50;transition:.3s}
+.experiment-box:hover{transform:translateY(-5px);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.experiment-box h3{text-align:center}
+.experiment-box p{margin-bottom:10px}
+.result{margin-top:15px;padding:12px;background:#e8f5e9;border-left:5px solid #4CAF50;border-radius:5px;min-height:45px;overflow-wrap:anywhere}
+.event-box{padding:30px 15px;text-align:center;background:#e8f5e9;border:2px dashed #4CAF50;border-radius:15px;cursor:pointer;margin:15px 0;font-weight:bold}
+.fruit-farm{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:15px}
+.fruit{min-height:55px;display:flex;justify-content:center;align-items:center;font-size:28px;background:#f1fff2;border:1px solid #81C784;border-radius:10px}
+.coin{width:150px;height:150px;margin:20px auto;border-radius:50%;display:flex;justify-content:center;align-items:center;background:#e8f5e9;border:8px solid #4CAF50;color:#2E7D32;font-size:22px;font-weight:bold;text-align:center;transition:transform .4s}
+.coin.flip{transform:rotateY(360deg)}
+.clock-display{font-size:32px;font-weight:bold;color:#2E7D32;text-align:center;padding:20px;background:#e8f5e9;border-radius:10px;margin:15px 0}
+.hover-text{text-align:center;font-size:20px;padding:20px;background:#e8f5e9;border-radius:10px;transition:.3s}
+.moving-area{width:100%;height:130px;background:#e8f5e9;border-radius:10px;margin:15px 0;overflow:hidden;position:relative}
+.moving-area img{width:90px;height:90px;object-fit:cover;border-radius:50%;position:absolute;left:0;top:15px}
+.student-list,.object-result{padding:15px;background:#e8f5e9;border-radius:8px;margin-top:15px;overflow-wrap:anywhere}
+.student-list p{padding:7px;border-bottom:1px solid #b7d9b9}
+footer{background:#2E7D32;color:white;text-align:center;padding:25px 20px;margin-top:30px}
+@media(max-width:768px){header h1{font-size:30px}nav{flex-direction:column}nav a{width:100%;text-align:center}section{padding:35px 15px}.fruit-farm{grid-template-columns:repeat(3,1fr)}table{display:block;overflow-x:auto}}
+@media(max-width:480px){header h1{font-size:25px}section{padding:25px 10px}.fruit-farm{grid-template-columns:repeat(3,1fr)}button,.btn{width:100%}}
+</style>
+</head>
+<body>
+<header id="home">
+<h1>Yoga Bliss Studio</h1>
+<p>Find Balance • Build Strength • Live Peacefully</p>
+</header>
+
+<nav>
+<a href="#home">Home</a><a href="#about">About</a><a href="#classes">Classes</a>
+<a href="#schedule">Schedule</a><a href="#membership">Membership</a>
+<a href="#wellness-tools">Wellness Tools</a><a href="#experiment6">Experiment 6</a><a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+<h2>Welcome to Yoga Bliss Studio</h2>
+<p>Experience the perfect combination of yoga, meditation and wellness. Improve your physical strength, mental peace and healthy lifestyle.</p>
+<a href="#membership" class="btn">Join Today's Class</a><br>
+<img src="https://gripzilla.co/cdn/shop/articles/improve-your-flexibility-with-these-7-effective-yoga-arm-stretches-311766.jpg?v=1723268312" alt="Yoga Practice">
+</section>
+
+<section id="about">
+<h2>About Our Studio</h2>
+<div class="rounded-feature">
+<p>Yoga Bliss Studio offers peaceful yoga sessions designed for beginners and advanced learners.</p><br>
+<p>Our certified instructors guide members through yoga, meditation, breathing exercises and wellness programs.</p>
+</div>
+</section>
+
+<section id="classes">
+<h2>Our Popular Yoga Classes</h2>
+<div class="cards">
+<article class="yoga-card">
+<img src="https://cdn.shopify.com/s/files/1/0077/7587/9266/files/lotuscrafts-hatha-yoga-uebungen_1024x1024.jpg?v=1576668676" alt="Hatha Yoga">
+<h3>Hatha Yoga</h3><p>Improve flexibility, posture and breathing through traditional yoga techniques.</p>
+</article>
+<article class="yoga-card">
+<img src="https://patanjaleeyoga.com/wp-content/uploads/2024/06/58.webp" alt="Vinyasa Yoga">
+<h3>Vinyasa Yoga</h3><p>Dynamic movements combined with breathing for balance and endurance.</p>
+</article>
+<article class="yoga-card">
+<img src="https://thebuddhistcentre.com/sites/default/files/uploads/3986c9d34117c4064491329b1e93155d.jpg" alt="Meditation">
+<h3>Meditation</h3><p>Reduce stress and improve focus through mindfulness and peaceful meditation.</p>
+</article>
+</div>
+</section>
+
+<section id="schedule">
+<h2>Yoga Class Schedule</h2>
+<table id="scheduleTable">
+<thead><tr><th>Class</th><th>Instructor</th><th>Time</th><th>Duration</th></tr></thead>
+<tbody>
+<tr><td>Hatha Yoga</td><td>Priya Sharma</td><td>6:00 AM</td><td>1 Hour</td></tr>
+<tr><td>Vinyasa Yoga</td><td>Rahul Mehta</td><td>8:00 AM</td><td>1 Hour</td></tr>
+<tr><td>Meditation</td><td>Anjali Singh</td><td>5:00 PM</td><td>45 Minutes</td></tr>
+<tr><td>Power Yoga</td><td>Kavya Nair</td><td>6:30 PM</td><td>1 Hour</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="membership">
+<h2>Yoga Class Registration</h2>
+<div class="form-container">
+<form id="registrationForm">
+<fieldset>
+<legend>Personal Information</legend>
+<label for="fname">Full Name</label>
+<input type="text" id="fname" placeholder="Enter your full name" required>
+<label for="email">Email Address</label>
+<input type="email" id="email" placeholder="example@gmail.com" required>
+<label for="mobile">Mobile Number</label>
+<input type="tel" id="mobile" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" required>
+<label for="age">Age</label>
+<input type="number" id="age" min="15" max="70" required>
+</fieldset>
+<fieldset>
+<legend>Yoga Preferences</legend>
+<label for="yogaClass">Preferred Yoga Class</label>
+<select id="yogaClass"><option>Hatha Yoga</option><option>Vinyasa Yoga</option><option>Meditation</option><option>Power Yoga</option></select>
+<label for="batch">Preferred Batch</label>
+<select id="batch"><option>Morning (6:00 AM - 7:30 AM)</option><option>Evening (5:00 PM - 6:30 PM)</option></select>
+</fieldset>
+<button type="submit">Register Now</button>
+<button type="reset">Reset</button>
+</form>
+<div id="formResult" class="result" aria-live="polite">Fill the form to join Yoga Bliss Studio.</div>
+</div>
+</section>
+
+<section id="wellness-tools">
+<h2>Yoga Bliss Wellness Tools</h2>
+<p style="text-align:center;max-width:800px;margin:0 auto 30px">Explore our interactive wellness tools designed using JavaScript, DOM methods and different event handling techniques.</p>
+<div class="experiment-grid">
+
+<div class="experiment-box">
+<h3>🧘 Yoga DOM Practice</h3>
+<p id="domText">Welcome to your interactive yoga practice session.</p>
+<button onclick="changeDOMText()">Start Practice</button>
+<button onclick="countTags()">Count Elements</button>
+<button onclick="countClasses()">Count Yoga Classes</button>
+<button onclick="changeAllHeadings()">Highlight Tools</button>
+<div id="domResult" class="result">Try a DOM method above.</div>
+</div>
+
+<div class="experiment-box">
+<h3>🌿 Yoga Interaction Events</h3>
+<div class="event-box" id="eventBox" ondblclick="doubleClickEvent()" onmouseover="mouseOverEvent()" onmouseout="mouseOutEvent()">Click, Double Click or Hover for a Yoga Interaction</div>
+<label for="keyInput">Write Your Wellness Goal</label>
+<input type="text" id="keyInput" placeholder="Example: Improve flexibility">
+<label for="changeSelect">Choose Your Practice</label>
+<select id="changeSelect"><option value="">Select a Yoga Practice</option><option>Hatha Yoga</option><option>Vinyasa Yoga</option><option>Meditation</option></select>
+<div id="eventResult" class="result">Interact with the tools above.</div>
+</div>
+
+<div class="experiment-box">
+<h3>📖 Yoga Mantra Word Finder</h3>
+<p>Enter a yoga mantra or wellness sentence.</p>
+<textarea id="sentence" rows="4" placeholder="Example: Peace begins with a calm mind"></textarea>
+<button onclick="findWords()">Find Shortest &amp; Longest Word</button>
+<div id="wordResult" class="result">Your mantra analysis will appear here.</div>
+</div>
+
+<div class="experiment-box">
+<h3>💚 Yogi BMI Calculator</h3>
+<p>Calculate your Body Mass Index as part of your wellness journey.</p>
+<label for="weight">Weight (kg)</label><input type="number" id="weight" placeholder="Example: 65" min="1" step="any">
+<label for="height">Height (cm)</label><input type="number" id="height" placeholder="Example: 170" min="1" step="any">
+<button onclick="calculateBMI()">Calculate BMI</button>
+<div id="bmiResult" class="result">Enter your details to calculate BMI.</div>
+</div>
+
+<div class="experiment-box">
+<h3>🍎 Yoga Fruit Garden</h3>
+<p>Generate a healthy garden of apples and oranges.</p>
+<button onclick="generateFarm()">Grow the Fruit Garden</button>
+<div id="fruitFarm" class="fruit-farm"></div>
+</div>
+
+<div class="experiment-box">
+<h3>💰 Wellness Currency Converter</h3>
+<p>Convert between Indian Rupees and US Dollars using the example fixed rate.</p>
+<label for="amount">Enter Amount</label><input type="number" id="amount" placeholder="Enter amount" min="0" step="any">
+<label for="currencyType">Select Conversion</label>
+<select id="currencyType"><option value="inrToUsd">INR to USD</option><option value="usdToInr">USD to INR</option></select>
+<button onclick="convertCurrency()">Convert Amount</button>
+<div id="currencyResult" class="result">Your converted amount will appear here.</div>
+</div>
+
+<div class="experiment-box">
+<h3>☯ Meditation Coin Flip</h3>
+<p>Take a breath, focus your mind and flip the wellness coin.</p>
+<div class="coin" id="coin">OM</div>
+<button id="flipButton">Flip Coin</button>
+<div id="coinResult" class="result">Heads: 0 | Tails: 0</div>
+</div>
+
+<div class="experiment-box">
+<h3>🧘 Yoga Mat Price Calculator</h3>
+<p>Calculate the total price for your Yoga Bliss Studio mat purchase.</p>
+<label for="matType">Select Yoga Mat</label>
+<select id="matType"><option value="500">Basic Yoga Mat - ₹500</option><option value="800">Premium Yoga Mat - ₹800</option><option value="1200">Professional Yoga Mat - ₹1200</option></select>
+<label for="serviceCharge">Select Service Charge</label>
+<select id="serviceCharge"><option value="10">10%</option><option value="15">15%</option><option value="20">20%</option></select>
+<button onclick="calculateMatPrice()">Calculate Total Price</button>
+<div id="matResult" class="result">Your yoga mat bill will appear here.</div>
+</div>
+
+</div>
+</section>
+
+<section id="experiment6">
+<h2>Experiment 6 - JavaScript Timers, Events &amp; Objects</h2>
+<p style="text-align:center;max-width:800px;margin:0 auto 30px">New practical activities using Date, setInterval(), setTimeout(), mouse events, classes and arrays of objects.</p>
+<div class="experiment-grid">
+
+<div class="experiment-box">
+<h3>🕒 Yoga Digital Clock</h3>
+<p>Display the current time using the Date object and setInterval().</p>
+<div class="clock-display" id="yogaClock">00:00:00</div>
+<div class="result">Clock updates automatically every second.</div>
+</div>
+
+<div class="experiment-box">
+<h3>🎨 Dynamic Background Colour</h3>
+<p>Change the webpage background using random RGB colours every 30 seconds.</p>
+<button onclick="startBackgroundChange()">Start Colour Change</button>
+<button onclick="stopBackgroundChange()">Stop Colour Change</button>
+<div id="backgroundResult" class="result">Background colour changer is stopped.</div>
+</div>
+
+<div class="experiment-box">
+<h3>🔠 Mouse Hover Font Size</h3>
+<p>Move your mouse over the text to increase its font size.</p>
+<p id="hoverText" class="hover-text" onmouseover="increaseFont()" onmouseout="decreaseFont()">Welcome to Yoga Bliss Studio!</p>
+<div class="result">Mouse Over: 32px | Mouse Out: 20px</div>
+</div>
+
+<div class="experiment-box">
+<h3>🏃 Moving Yoga Image</h3>
+<p>Move the yoga image using setTimeout() and stop it using clearTimeout().</p>
+<div class="moving-area" id="movingArea">
+<img id="movingImage" src="https://cdn.shopify.com/s/files/1/0077/7587/9266/files/lotuscrafts-hatha-yoga-uebungen_1024x1024.jpg?v=1576668676" alt="Moving Yoga Image">
+</div>
+<button onclick="startMovingImage()">Move Image</button>
+<button onclick="stopMovingImage()">Stop Image</button>
+<div id="moveResult" class="result">Click Move Image to start.</div>
+</div>
+
+<div class="experiment-box">
+<h3>🧘 Yoga Class and Objects</h3>
+<p>Create a JavaScript class, constructor and object to display yoga class information.</p>
+<button onclick="displayYogaObject()">Create Yoga Object</button>
+<div id="objectResult" class="object-result">Yoga object details will appear here.</div>
+</div>
+
+<div class="experiment-box">
+<h3>🎓 Student Object Records</h3>
+<p>Display student details and categorize them according to birth year.</p>
+<button onclick="displayStudents()">Display Student Records</button>
+<div id="studentResult" class="student-list">Student records will appear here.</div>
+</div>
+
+</div>
+</section>
+
+<footer id="contact">
+<p><strong>Done By:</strong> KAVIN ADAIKALARAJ F</p>
+<p><strong>Register Number:</strong> URK24CS1188</p>
+<p><strong>Exercise No:</strong> 5 &amp; 6</p>
+<p><strong>Title:</strong> Webpage Design Using JavaScript DOM, Events, Timers and Objects</p>
+<p>&copy; 2026 Yoga Bliss Studio. All Rights Reserved.</p>
+</footer>
+
+<script>
+// PAGE LOAD
+function pageLoaded() {
+    console.log("Welcome to Yoga Bliss Studio!");
+}
+window.addEventListener("load", pageLoaded);
+
+// EXPERIMENT 5: DOM METHODS
+function changeDOMText() {
+    document.getElementById("domText").textContent =
+        "Your yoga practice has started! Breathe deeply and stay balanced.";
+    document.getElementById("domResult").textContent =
+        "getElementById() successfully changed the yoga message.";
+}
+function countTags() {
+    const paragraphs = document.getElementsByTagName("p");
+    document.getElementById("domResult").textContent =
+        "Total paragraph elements on this page: " + paragraphs.length;
+}
+function countClasses() {
+    const cards = document.getElementsByClassName("yoga-card");
+    document.getElementById("domResult").textContent =
+        "Yoga classes available: " + cards.length;
+}
+function changeAllHeadings() {
+    const headings = document.querySelectorAll(".experiment-box h3");
+    headings.forEach(function(heading) {
+        heading.style.color = "#4CAF50";
+    });
+    document.getElementById("domResult").textContent =
+        "querySelectorAll() selected and highlighted all wellness tool headings.";
+}
+
+// EXPERIMENT 5: EVENTS
+document.getElementById("eventBox").onclick = function() {
+    document.getElementById("eventResult").textContent =
+        "Namaste! You performed a Click Event.";
+};
+function doubleClickEvent() {
+    document.getElementById("eventResult").textContent =
+        "Double Click Event: Your yoga energy is flowing!";
+}
+function mouseOverEvent() {
+    document.getElementById("eventResult").textContent =
+        "Mouse Over Event: Take a deep breath.";
+}
+function mouseOutEvent() {
+    document.getElementById("eventResult").textContent =
+        "Mouse Out Event: Continue your peaceful journey.";
+}
+document.getElementById("keyInput").addEventListener("keyup", function() {
+    document.getElementById("eventResult").textContent =
+        "Key Up Event: Your wellness goal is: " + this.value;
+});
+document.getElementById("keyInput").addEventListener("keydown", function() {
+    console.log("Key Down Event occurred.");
+});
+document.getElementById("keyInput").addEventListener("focus", function() {
+    document.getElementById("eventResult").textContent =
+        "Focus Event: Stay focused and breathe.";
+});
+document.getElementById("keyInput").addEventListener("blur", function() {
+    document.getElementById("eventResult").textContent =
+        "Blur Event: Your practice is complete.";
+});
+document.getElementById("changeSelect").addEventListener("change", function() {
+    document.getElementById("eventResult").textContent =
+        "Change Event: You selected " + this.value;
+});
+
+// EXPERIMENT 5: WORD FINDER
+function findWords() {
+    const text = document.getElementById("sentence").value.trim();
+    const resultBox = document.getElementById("wordResult");
+    if (text === "") {
+        resultBox.textContent = "Please enter a yoga mantra or sentence.";
+        return;
+    }
+    const words = text.split(/\s+/);
+    let shortest = words[0];
+    let longest = words[0];
+    for (let i = 1; i < words.length; i++) {
+        if (words[i].length < shortest.length) shortest = words[i];
+        if (words[i].length > longest.length) longest = words[i];
+    }
+    resultBox.innerHTML =
+        "Shortest Word: <strong>" + escapeHTML(shortest) +
+        "</strong><br>Longest Word: <strong>" + escapeHTML(longest) + "</strong>";
+}
+
+// Helper to safely display user-entered text in HTML output
+function escapeHTML(value) {
+    return value.replace(/[&<>"']/g, function(char) {
+        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char];
+    });
+}
+
+// EXPERIMENT 5: BMI CALCULATOR
+function calculateBMI() {
+    const weight = parseFloat(document.getElementById("weight").value);
+    const heightCm = parseFloat(document.getElementById("height").value);
+    const resultBox = document.getElementById("bmiResult");
+    if (!Number.isFinite(weight) || !Number.isFinite(heightCm) ||
+        weight <= 0 || heightCm <= 0) {
+        resultBox.textContent = "Please enter valid weight and height.";
+        return;
+    }
+    const heightM = heightCm / 100;
+    const bmi = weight / (heightM * heightM);
+    let category;
+    if (bmi < 18.5) category = "Underweight";
+    else if (bmi < 25) category = "Normal";
+    else if (bmi < 30) category = "Overweight";
+    else category = "Obese";
+    resultBox.innerHTML = "Your BMI: <strong>" + bmi.toFixed(2) +
+        "</strong><br>Wellness Category: <strong>" + category + "</strong>";
+}
+
+// EXPERIMENT 5: FRUIT GARDEN
+function generateFarm() {
+    const farm = document.getElementById("fruitFarm");
+    farm.innerHTML = "";
+    for (let i = 0; i < 25; i++) {
+        const fruit = document.createElement("div");
+        fruit.className = "fruit";
+        fruit.textContent = Math.floor(Math.random() * 2) === 0 ? "🍎" : "🍊";
+        farm.appendChild(fruit);
+    }
+}
+
+// EXPERIMENT 5: CURRENCY CONVERTER (fixed example rate, not live exchange rate)
+function convertCurrency() {
+    const amount = parseFloat(document.getElementById("amount").value);
+    const type = document.getElementById("currencyType").value;
+    const resultBox = document.getElementById("currencyResult");
+    if (!Number.isFinite(amount) || amount <= 0) {
+        resultBox.textContent = "Please enter a valid amount.";
+        return;
+    }
+    const rate = 83;
+    if (type === "inrToUsd") {
+        resultBox.innerHTML = "₹" + amount.toFixed(2) +
+            " = <strong>$" + (amount / rate).toFixed(2) + "</strong>";
+    } else {
+        resultBox.innerHTML = "$" + amount.toFixed(2) +
+            " = <strong>₹" + (amount * rate).toFixed(2) + "</strong>";
+    }
+}
+
+// EXPERIMENT 5: COIN FLIP
+let heads = 0;
+let tails = 0;
+document.getElementById("flipButton").addEventListener("click", function() {
+    const coin = document.getElementById("coin");
+    coin.classList.remove("flip");
+    void coin.offsetWidth;
+    coin.classList.add("flip");
+    if (Math.floor(Math.random() * 2) === 0) {
+        heads++;
+        coin.textContent = "HEADS";
+    } else {
+        tails++;
+        coin.textContent = "TAILS";
+    }
+    document.getElementById("coinResult").innerHTML =
+        "☀ Heads: <strong>" + heads + "</strong> | 🌙 Tails: <strong>" + tails + "</strong>";
+});
+
+// EXPERIMENT 5: YOGA MAT PRICE
+function calculateMatPrice() {
+    const matPrice = parseFloat(document.getElementById("matType").value);
+    const servicePercentage = parseFloat(document.getElementById("serviceCharge").value);
+    const tax = matPrice * 0.09;
+    const serviceCharge = matPrice * (servicePercentage / 100);
+    const total = matPrice + tax + serviceCharge;
+    document.getElementById("matResult").innerHTML =
+        "Yoga Mat Price: ₹" + matPrice.toFixed(2) +
+        "<br>Tax (9%): ₹" + tax.toFixed(2) +
+        "<br>Service Charge (" + servicePercentage + "%): ₹" + serviceCharge.toFixed(2) +
+        "<br><strong>Total Price: ₹" + total.toFixed(2) + "</strong>";
+}
+
+// REGISTRATION FORM
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const name = document.getElementById("fname").value.trim();
+    document.getElementById("formResult").innerHTML =
+        "Namaste <strong>" + escapeHTML(name) +
+        "</strong>! Your Yoga Bliss registration was successful.";
+});
+document.getElementById("registrationForm").addEventListener("reset", function() {
+    document.getElementById("formResult").textContent =
+        "Fill the form to join Yoga Bliss Studio.";
+});
+
+// EXPERIMENT 6: 1. DIGITAL CLOCK (Date + setInterval)
+function displayYogaTime() {
+    const d = new Date();
+    const hour = String(d.getHours()).padStart(2, "0");
+    const minute = String(d.getMinutes()).padStart(2, "0");
+    const second = String(d.getSeconds()).padStart(2, "0");
+    document.getElementById("yogaClock").textContent =
+        hour + ":" + minute + ":" + second;
+}
+displayYogaTime();
+setInterval(displayYogaTime, 1000);
+
+// EXPERIMENT 6: 2. DYNAMIC BACKGROUND (setInterval + clearInterval)
+let backgroundTimer = null;
+function startBackgroundChange() {
+    if (backgroundTimer !== null) return;
+    function setBackgroundColor() {
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+        const color = "rgb(" + red + ", " + green + ", " + blue + ")";
+        document.body.style.backgroundColor = color;
+        document.getElementById("backgroundResult").textContent =
+            "Current Background Colour: " + color;
+    }
+    setBackgroundColor();
+    backgroundTimer = setInterval(setBackgroundColor, 30000);
+}
+function stopBackgroundChange() {
+    if (backgroundTimer !== null) {
+        clearInterval(backgroundTimer);
+        backgroundTimer = null;
+    }
+    document.body.style.backgroundColor = "#f8f8f8";
+    document.getElementById("backgroundResult").textContent =
+        "Background colour changer stopped. Original colour restored.";
+}
+
+// EXPERIMENT 6: 3. MOUSE HOVER FONT SIZE
+function increaseFont() {
+    const text = document.getElementById("hoverText");
+    text.style.fontSize = "32px";
+    text.style.color = "#2E7D32";
+}
+function decreaseFont() {
+    const text = document.getElementById("hoverText");
+    text.style.fontSize = "20px";
+    text.style.color = "#333";
+}
+
+// EXPERIMENT 6: 4. MOVE AND STOP IMAGE (recursive setTimeout + clearTimeout)
+let animate = null;
+let imagePosition = 0;
+function moveRight() {
+    const image = document.getElementById("movingImage");
+    const area = document.getElementById("movingArea");
+    const maxPosition = Math.max(0, area.clientWidth - image.offsetWidth);
+    if (imagePosition >= maxPosition) {
+        animate = null;
+        document.getElementById("moveResult").textContent =
+            "Image reached the end! Click Move Image to start again.";
+        return;
+    }
+    imagePosition++;
+    image.style.left = imagePosition + "px";
+    animate = setTimeout(moveRight, 10);
+}
+function startMovingImage() {
+    if (animate !== null) return;
+    const area = document.getElementById("movingArea");
+    const image = document.getElementById("movingImage");
+    const maxPosition = Math.max(0, area.clientWidth - image.offsetWidth);
+    if (imagePosition >= maxPosition) {
+        imagePosition = 0;
+        image.style.left = "0px";
+    }
+    document.getElementById("moveResult").textContent = "Yoga image is moving...";
+    moveRight();
+}
+function stopMovingImage() {
+    if (animate !== null) clearTimeout(animate);
+    animate = null;
+    imagePosition = 0;
+    document.getElementById("movingImage").style.left = "0px";
+    document.getElementById("moveResult").textContent =
+        "Image stopped and returned to its original position.";
+}
+
+// EXPERIMENT 6: 5. CLASS, CONSTRUCTOR AND OBJECT
+class YogaClass {
+    constructor(className, instructor, duration) {
+        this.className = className;
+        this.instructor = instructor;
+        this.duration = duration;
+    }
+    present() {
+        return "Yoga Class: " + this.className +
+            "<br>Instructor: " + this.instructor +
+            "<br>Duration: " + this.duration;
+    }
+}
+function displayYogaObject() {
+    const myYoga = new YogaClass("Hatha Yoga", "Priya Sharma", "1 Hour");
+    document.getElementById("objectResult").innerHTML =
+        "<strong>Yoga Object Created Successfully!</strong><br><br>" + myYoga.present();
+}
+
+// EXPERIMENT 6: 6. ARRAY OF STUDENT OBJECTS
+const students = [
+    {name: "Kavin", regno: "URK24CS1188", year: 2006},
+    {name: "Rahul", regno: "URK24CS1200", year: 2005},
+    {name: "Priya", regno: "URK24CS1210", year: 1999},
+    {name: "Anjali", regno: "URK24CS1220", year: 2002}
+];
+function displayStudents() {
+    let output = "<strong>Student Records:</strong><br>";
+    for (let i = 0; i < students.length; i++) {
+        let category;
+        if (students[i].year < 2000) {
+            category = "Before 2000";
+        } else {
+            category = "2000 or after";
+        }
+        output += "<p><strong>Name:</strong> " + escapeHTML(students[i].name) +
+            "<br><strong>Register Number:</strong> " + escapeHTML(students[i].regno) +
+            "<br><strong>Birth Year:</strong> " + students[i].year +
+            "<br><strong>Category:</strong> " + category + "</p>";
+    }
+    document.getElementById("studentResult").innerHTML = output;
+}
+
+// EXPERIMENT 5: SCROLL EVENT
+window.addEventListener("scroll", function() {
+    console.log("Yoga Bliss page is scrolling: " + window.scrollY);
+});
+</script>
+</body>
+</html>
